@@ -85,5 +85,187 @@ body {
 
 .key{
   position: absolute;
+  height: 15%;
+  width: 8%;
+  border-radius: 50%;
+  background-color: brown;
+}
+.key-stem{
+  position: absolute;
+  top: 100%;
+  left: 42.5%;
+  height: 65%;
+  width: 15%;
+  background-color: orange;
+}
 
+.double-stem{
+  position: absolute;
+  top:100%;
+  width: 3%;
+  height: 25%;
+  background-color: orange;
+}
+.left{
+  left: 13%
+}
+.right{
+  left: 83%;
+}
+
+#one{
+  top:0%;
+  left: -2%;
+}
+
+#two{
+  top:0%;
+  left:8.6%;
+}
+
+#three{
+  top:0%;
+  left:19.2%;
+}
+
+#four{
+  top:0%;
+  left:29.8%;
+}
+
+#five{
+  top:0%;
+  left:40.4%;
+}
+
+#six{
+  top:0%;
+  left:51%;
+}
+
+#seven{
+  top:0%;
+  left:61.6%;
+}
+
+#eight{
+  top:0%;
+  left:72.2%;
+}
+
+#nine{
+  top:0%;
+  left:82.8%;
+}
+
+#zero{
+  top:0%;
+  left:93.4%;
+}
+
+#q{
+  top:26%;
+  left: 0%;
+}
+
+#w{
+  top:26%;
+  left:10.2%;
+}
+
+#e{
+  top:26%;
+  left:20.4%;
+}
+
+#r{
+  top:26%;
+  left:30.6%;
+}
+
+#t{
+  top:26%;
+  left:40.8%;
+}
+
+#y{
+  top:26%;
+  left:51%;
+}
+
+#u{
+  top:26%;
+  left:61.2%;
+}
+
+#i{
+  top:26%;
+  left:71.4%;
+}
+
+#o{
+  top:26%;
+  left:81.6%;
+}
+
+#p{
+  top:26%;
+  left:91.8%;
+}
+
+#z{
+  top:54%;
+  left: 2%;
+}
+
+#x{
+  top:54%;
+  left: 11.7%;
+}
+
+#c{
+  top:54%;
+  left: 21.4%;
+}
+
+#v{
+  top:54%;
+  left: 31.1%; /*9.7*/
+}
+
+#b{
+  top:54%;
+  left: 40.8%;
+}
+
+#n{
+  top:54%;
+  left: 50.5%;
+}
+
+#m{
+  top:54%;
+  left: 60.2%;
+}
+
+#comma{
+  top:54%;
+  left: 69.9%;
+}
+
+#dot{
+  top:54%;
+  left: 79.6%;
+}
+
+#question{
+  top: 54%;
+  left:89.3%;
+}
+
+#space{
+  top:80%;
+  width: 50%;
+  border-radius: 5%;
+  left: 25%;
 }
