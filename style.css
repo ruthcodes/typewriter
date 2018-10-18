@@ -1,0 +1,89 @@
+body {
+  background-color: lightgrey;
+}
+
+.container{
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 800px;
+  height: 620px;
+}
+
+.typewriter{
+  position: absolute;
+  top: 11.5%; /*(100 - height) / 2*/
+  left: 10%; /*(100 - width) / 2*/
+  height: 77%;
+  width: 80%;
+  background-color: black;
+}
+
+.typewriter-body-top{
+  position: absolute;
+  width: 95%;
+  height: 37.5%;
+  top: 2.5%;
+  left: 2.5%;
+  background-color: blue;
+}
+
+.platen{
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  top: 0%;
+  left:0%;
+  background-color: green;
+}
+
+.left-dial{
+  position: absolute;
+  width:10%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  background-color: purple;
+}
+
+.right-dial{
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  top: 0%;
+  left: 90%;
+  background-color: pink;
+}
+
+.typebars{
+  position: absolute;
+  width:60%;
+  height: 60%;
+  top: 40%;
+  left: 20%;
+  border-radius: 0 0 50% 50%;
+  background-color: yellow;
+}
+
+.typewriter-body-bottom{
+  position: absolute;
+  width: 95%;
+  height: 57.5%;
+  top: 40%;
+  left: 2.5%;
+  background-color: red;
+}
+
+.keyboard{
+  position: absolute;
+  width: 90%;
+  height: 75%;
+  top: 20%;
+  left: 5%;
+  background-color: white;
+}
+
+.key{
+  position: absolute;
+
+}
