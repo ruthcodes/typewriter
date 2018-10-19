@@ -68,6 +68,62 @@ body {
   background-color: yellow;
 }
 
+.sight{
+  position: absolute;
+  width: 20%;
+  height: 25%;
+  top: -5%;
+  left: 40%;
+  border-radius: 0 0 50% 50%;
+  background-color: black;
+  z-index: 2
+}
+
+#line1{
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: right;
+  border-top:5px solid orange;
+  top: 0%;
+  width: 50%;
+}
+
+#line2{
+  position: absolute;
+  transform: rotate(225deg);
+  transform-origin: right;
+  border-top:5px solid orange;
+  top: 0%;
+  width: 50%;
+}
+
+#line3{
+  position: absolute;
+  transform: rotate(270deg);
+  transform-origin: right;
+  border-top:5px solid orange;
+  top: 0%;
+  width: 50%;
+}
+
+#line4{
+  position: absolute;
+  transform: rotate(245deg);
+  transform-origin: right;
+  border-top:5px solid orange;
+  top: 0%;
+  width: 50%;
+}
+
+#line5{
+  position: absolute;
+  transform: rotate(295deg);
+  transform-origin: right;
+  border-top:5px solid orange;
+  top: 0%;
+  width: 50%;
+}
+
 .typewriter-body-bottom{
   position: absolute;
   width: 95%;
@@ -92,7 +148,10 @@ body {
   width: 8%;
   border-radius: 50%;
   background-color: brown;
+  transition: top .3s ease-in-out;
+
 }
+
 .key-stem{
   position: absolute;
   top: 100%;
@@ -114,6 +173,11 @@ body {
 }
 .right{
   left: 83%;
+}
+
+.moveKeyRow{
+  top: 5% !important;
+  
 }
 
 #one{
