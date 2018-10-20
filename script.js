@@ -15,27 +15,34 @@ const rowThree = [
   {'m':'m'}, {'comma': ','}, {'dot': '.'}, {'question': '?'}
 ];
 
-const generateKeysFromObj = (row, element) => {
+const generateButtonsFromObj = (row, element, top, leftStart, leftInc) => {
   row.forEach(key => {
     element.innerHTML += `
-      <div class="key" id=${Object.keys(key)}>
+      <div class="key" id=${Object.keys(key)} style="top:${top}%;left:${leftStart}%">
         ${key[Object.keys(key)]}
         <div class="key-stem"></div>
       </div>
     `
+    leftStart+= leftInc;
+
   })
 }
 
-generateKeysFromObj(rowOne, one);
-generateKeysFromObj(rowThree, three);
+generateButtonsFromObj(rowOne, one, 0, -2, 10.6);
+generateButtonsFromObj(rowThree, three, 54, 2, 9.7);
+
+let topConst = 26;
+let left = 0;
+const leftInc = 10.2;
 
 rowTwo.forEach(key => {
   two.innerHTML += `
-    <div class="key" id=${key}>
+    <div class="key" id=${key} style="top:${topConst}%;left:${left}%">
       ${key}
       <div class="key-stem"></div>
     </div>
   `
+  left += leftInc;
 })
 
 
