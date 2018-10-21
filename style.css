@@ -136,7 +136,6 @@ body {
   text-align: center;
 }
 
-
 .key-stem{
   position: absolute;
   top: 100%;
@@ -159,13 +158,6 @@ body {
 .right{
   left: 83%;
 }
-
-.moveKeyRow{
-  top: 5% !important;
-
-}
-
-
 
 #space{
   top:80%;
