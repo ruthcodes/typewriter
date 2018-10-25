@@ -30,7 +30,6 @@ body {
 	border-right: 55px solid transparent;
   top: 15%;
   left: -8.5%;
-
 }
 
 .platen{
@@ -38,9 +37,9 @@ body {
   width: 120%;
   height: 15%;
   top: 0%;
-  left:-10%;
+  left:15%;
   background-color: green;
-
+  transition: .5s;
 }
 
 .paper{
@@ -106,7 +105,15 @@ body {
   background-color: black;
   top: 1%;
   left: 1%;
-  transform: rotate(65deg);
+  transform: rotate(75deg);
+  transform-origin: 30% 50%;
+  transition: 1s;
+}
+
+.pressLever{
+  transform: rotate(55deg);
+  transform-origin: 10% 62%;
+  transition: 1s;
 }
 
 .handle{
