@@ -1,5 +1,6 @@
 const RESET_PLATEN = 96;
 let canClick = true;
+let textRowCounter = 1;
 
 //page element parents
 const one = document.querySelector('#rowOne');
@@ -10,6 +11,7 @@ const lever = document.querySelector('.lever');
 const platen = document.querySelector('.platen');
 const paper = document.querySelector('.paper');
 const backPaper = document.querySelector('.nextPaper');
+let text = document.querySelector('#text1');
 
 //values to generate page element children from
 const nums = [1,2,3,4,5,6,7,8,9,0];
@@ -51,7 +53,7 @@ keys.forEach(key => {
     //move platen
     let platenPosition = parseInt(window.getComputedStyle(platen).left.replace('px', ''));
       if (platenPosition > -214){
-        platen.style.left = platenPosition-=10;
+        platen.style.left = platenPosition-=7.5;
       } else {
         //reset platen
         lever.classList.add('pressLever');
@@ -59,7 +61,16 @@ keys.forEach(key => {
         platen.style.left = RESET_PLATEN;
         //adjust front and back paper
         adjustPaper();
+        //add new line for text
+        textRowCounter++;
+        let div = document.createElement('div');
+        div.id = `text${textRowCounter}`;
+        div.className = "text";
+        paper.appendChild(div);
+        text = document.querySelector(`#text${textRowCounter}`);
       }
+      //add char to text
+    text.innerHTML += this.id === 'space' ? ' ' : this.id;
   })
 })
 

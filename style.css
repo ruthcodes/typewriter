@@ -74,6 +74,18 @@ body {
   transition: .5s;
 }
 
+.text{
+  position:absolute;
+  width: 70%;
+  height: 20px;
+  top: 60%;
+  left: 15%;
+  border: 1px solid black;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 1px;
+}
+
 .nextPaper{
   position: absolute;
   width: 70%;
