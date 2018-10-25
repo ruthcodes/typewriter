@@ -1,6 +1,6 @@
 const RESET_PLATEN = 96;
-
 let canClick = true;
+
 //page element parents
 const one = document.querySelector('#rowOne');
 const two = document.querySelector('#rowTwo');
@@ -10,7 +10,6 @@ const lever = document.querySelector('.lever');
 const platen = document.querySelector('.platen');
 const paper = document.querySelector('.paper');
 const backPaper = document.querySelector('.nextPaper');
-
 
 //values to generate page element children from
 const nums = [1,2,3,4,5,6,7,8,9,0];

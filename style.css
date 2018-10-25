@@ -21,6 +21,24 @@ body {
   background-color: black;
 }
 
+.topFill{
+  position: absolute;
+  width: 9%;
+  height: 15%;
+  background-color: black;
+  border-radius: 2px;
+}
+
+#leftFiller{
+  top:0;
+  left:-9%;
+}
+
+#rightFiller{
+  top:0;
+  left: 100%;
+}
+
 .typewriter-body-top{
   position: absolute;
   width: 100%;
@@ -53,6 +71,7 @@ body {
   border-bottom: none;
   border-top-left-radius: 20%;
   border-top-right-radius: 20%;
+  transition: .5s;
 }
 
 .nextPaper{
@@ -64,6 +83,7 @@ body {
   background-color: #F8F8F8;
   border: 1px solid black;
   border-bottom: none;
+  transition: .5s;
 }
 
 .left-dial{
