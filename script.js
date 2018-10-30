@@ -1,5 +1,6 @@
 const RESET_PLATEN = 96;
 let canClick = true;
+let movePlaten = true;
 let textRowCounter = 1;
 
 //page element parents
@@ -12,6 +13,7 @@ const platen = document.querySelector('.platen');
 const paper = document.querySelector('.paper');
 const backPaper = document.querySelector('.nextPaper');
 let text = document.querySelector('#text1');
+
 
 //values to generate page element children from
 const nums = [1,2,3,4,5,6,7,8,9,0];
@@ -52,8 +54,13 @@ keys.forEach(key => {
     }
     //move platen
     let platenPosition = parseInt(window.getComputedStyle(platen).left.replace('px', ''));
-      if (platenPosition > -214){
-        platen.style.left = platenPosition-=7.5;
+    if (movePlaten){
+      if (platenPosition > -214 && movePlaten){
+        movePlaten = false;
+        platen.style.left = platenPosition-=7;
+        setTimeout(()=> {
+          movePlaten = true;
+        }, 300)
       } else {
         //reset platen
         lever.classList.add('pressLever');
@@ -71,6 +78,7 @@ keys.forEach(key => {
       }
       //add char to text
     text.innerHTML += this.id === 'space' ? ' ' : this.id;
+    }
   })
 })
 
