@@ -57,7 +57,7 @@ body {
   top: 0%;
   left:15%;
   background-color: green;
-  transition: .3s;
+  transition: .1s;
 }
 
 .paper{
@@ -80,10 +80,10 @@ body {
   height: 20px;
   top: 60%;
   left: 15%;
-
   font-size: 12px;
   font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 1px;
+  white-space: pre-wrap;
 }
 
 .nextPaper{
