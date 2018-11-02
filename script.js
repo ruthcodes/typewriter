@@ -14,7 +14,7 @@ const paper = document.querySelector('.paper');
 const backPaper = document.querySelector('.nextPaper');
 let text = document.querySelector('#text1');
 let buttons = [];
-const RESET_PLATEN = window.getComputedStyle(platen).left.replace('px', '');
+const PLATEN_RESET = window.getComputedStyle(platen).left.replace('px', '');
 
 //values to generate page element children from
 const nums = [1,2,3,4,5,6,7,8,9,0];
@@ -32,6 +32,12 @@ const generateButtons = (row, element, top, leftStart, leftInc,height=15) => {
     `
     leftStart += leftInc;
   })
+}
+
+const resetPlaten = () => {
+  lever.classList.add('pressLever');
+  setTimeout(()=> lever.classList.remove('pressLever'), 1100);
+  platen.style.left = PLATEN_RESET;
 }
 
 const handleInput = (e) => {
@@ -55,10 +61,7 @@ const handleInput = (e) => {
         movePlaten = true;
       }, 100)
     } else {
-      //reset platen
-      lever.classList.add('pressLever');
-      setTimeout(()=> lever.classList.remove('pressLever'), 1100)
-      platen.style.left = RESET_PLATEN;
+      resetPlaten()
       //adjust front and back paper
       adjustPaper();
       //add new line for text
@@ -110,8 +113,6 @@ const adjustPaper = () => {
 }
 
 lever.addEventListener('click', ()=> {
-  lever.classList.add('pressLever');
-  setTimeout(()=> lever.classList.remove('pressLever'), 1100);
-  platen.style.left = RESET_PLATEN;
+  resetPlaten();
   adjustPaper();
 })
