@@ -2,6 +2,9 @@
 let canClick = true;
 let movePlaten = true;
 let textRowCounter = 1;
+let buttons = [];
+let textTopPosition = 40;
+let moveList = [];
 
 //page element parents
 const one = document.querySelector('#rowOne');
@@ -13,7 +16,7 @@ const platen = document.querySelector('.platen');
 const paper = document.querySelector('.paper');
 const backPaper = document.querySelector('.nextPaper');
 let text = document.querySelector('#text1');
-let buttons = [];
+
 const PLATEN_RESET = window.getComputedStyle(platen).left.replace('px', '');
 
 //values to generate page element children from
@@ -40,7 +43,16 @@ const resetPlaten = () => {
   platen.style.left = PLATEN_RESET;
 }
 
-const handleInput = (e) => {
+const throttleInput = async (e) => {
+  moveList.push(e);
+  if (moveList.length > 0){
+    // remove first item in input array (oldest input);
+    const nextMove = moveList.shift()
+    await handleInput(nextMove);
+  }
+}
+
+const handleInput = async (e) => {
   //move key down and up
   let thisTop = parseInt(e.style.top.replace('%',''));
   if(canClick){
@@ -59,20 +71,9 @@ const handleInput = (e) => {
       platen.style.left = platenPosition-=7;
       setTimeout(()=> {
         movePlaten = true;
-      }, 100)
-    } else {
-      resetPlaten()
-      //adjust front and back paper
-      adjustPaper();
-      //add new line for text
-      textRowCounter++;
-      let div = document.createElement('div');
-      div.id = `text${textRowCounter}`;
-      div.className = "text";
-      paper.appendChild(div);
-      text = document.querySelector(`#text${textRowCounter}`);
+      }, 30)
     }
-    //add char to text
+  //add char to text
   text.innerHTML += e.id === 'space' ? ' ' : e.id;
   }
 }
@@ -86,7 +87,7 @@ const keys = [...document.querySelectorAll('.key')];
 
 keys.forEach(key => {
   buttons.push(key.id)
-  key.addEventListener('click', (e) => handleInput(e.target));
+  key.addEventListener('click', (e) => throttleInput(e.target));
 })
 
 window.addEventListener('keydown', (e)=> {
@@ -94,10 +95,10 @@ window.addEventListener('keydown', (e)=> {
     e.preventDefault();
   }
   if (e.key === ' '){
-    handleInput(document.querySelector('#space'))
+    throttleInput(document.querySelector('#space'))
   }
   if (buttons.includes(e.key)){
-    handleInput(document.querySelector(`#${e.key}`));
+    throttleInput(document.querySelector(`#${e.key}`));
   }
 });
 
@@ -108,8 +109,17 @@ const adjustPaper = () => {
   let backPaperHeight = parseInt(window.getComputedStyle(backPaper).height.replace('px', ''));
   paper.style.top = frontPaperPos-=10;
   paper.style.height = frontPaperHeight+=10;
-  backPaper.style.top = backPaperPos+=5;
-  backPaper.style.height = backPaperHeight-=5;
+  backPaper.style.top = backPaperPos+=10;
+  backPaper.style.height = backPaperHeight-=10;
+  //add new line for text
+  textRowCounter++;
+  let div = document.createElement('div');
+  div.id = `text${textRowCounter}`;
+  div.className = "text";
+  textTopPosition += 10;
+  div.style.top = textTopPosition;
+  paper.appendChild(div);
+  text = document.querySelector(`#text${textRowCounter}`);
 }
 
 lever.addEventListener('click', ()=> {

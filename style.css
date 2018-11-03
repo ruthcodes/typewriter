@@ -76,14 +76,18 @@ body {
 
 .text{
   position:absolute;
-  width: 70%;
-  height: 20px;
-  top: 60%;
+  max-width: 70%;
+  max-height: 20px;
   left: 15%;
   font-size: 12px;
   font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 1px;
-  white-space: pre-wrap;
+  white-space: pre;
+  overflow: hidden;
+}
+
+#text1{
+  top: 40px;
 }
 
 .nextPaper{
@@ -168,6 +172,21 @@ body {
   border-radius: 0 0 50% 50%;
   background-color: black;
   z-index: 2
+}
+
+.sightLines{
+  position: absolute;
+  width: 15%;
+  height: 70%;
+  top: -70%;
+  background-color: black;
+}
+
+#sightLinesLeft{
+  left: 20%;
+}
+#sightLinesRight{
+  left: 65%;
 }
 
 .line{
