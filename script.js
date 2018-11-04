@@ -53,6 +53,9 @@ const throttleInput = async (e) => {
 }
 
 const handleInput = async (e) => {
+  if (e.className === "key-stem"){
+    return
+  }
   //move key down and up
   let thisTop = parseInt(e.style.top.replace('%',''));
   if(canClick){
