@@ -284,8 +284,5 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#818383",endCo
 }
 
 #space{
-  top:80%;
-  width: 50%;
   border-radius: 5%;
-  left: 25%;
 }
