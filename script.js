@@ -28,7 +28,7 @@ const rowThree = ['z','x','c','v','b','n','m',',','.','?'];
 const generateButtons = (row, element, top, leftStart, leftInc,height=15) => {
   row.forEach(key => {
     element.innerHTML += `
-      <div class="key" id=${key} style="top:${top}%;left:${leftStart}%;height:${height}%">
+      <div class="key" id=${key} data-val=${key} style="top:${top}%;left:${leftStart}%;height:${height}%">
         ${key}
         <div class="key-stem"></div>
       </div>
@@ -93,12 +93,14 @@ keys.forEach(key => {
 window.addEventListener('keydown', (e)=> {
   if (e.keyCode === 13) {
     e.preventDefault();
+    resetPlaten();
+    adjustPaper();
   }
   if (e.key === ' '){
     throttleInput(document.querySelector('#space'))
   }
   if (buttons.includes(e.key)){
-    throttleInput(document.querySelector(`#${e.key}`));
+    throttleInput(document.querySelector(`[data-val="${e.key}"]`));
   }
 });
 
