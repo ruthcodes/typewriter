@@ -38,6 +38,9 @@ const generateButtons = (row, element, top, leftStart, leftInc,height=15) => {
 }
 
 const resetPlaten = () => {
+  const carriageSound = document.querySelector('.carriage');
+  carriageSound.currentTime = 0;
+  carriageSound.play();
   lever.classList.add('pressLever');
   setTimeout(()=> lever.classList.remove('pressLever'), 1100);
   platen.style.left = PLATEN_RESET;
@@ -65,6 +68,9 @@ const handleInput = async (e) => {
       e.style.top = thisTop + '%';
       canClick = true;
     }, 100);
+    const audio = document.querySelector('.key-click');
+    audio.currentTime = 0;
+    audio.play();
   }
   //move platen
   let platenPosition = parseInt(window.getComputedStyle(platen).left.replace('px', ''));
