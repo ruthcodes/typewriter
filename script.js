@@ -114,23 +114,35 @@ window.addEventListener('keydown', (e)=> {
 });
 
 const adjustPaper = () => {
-  let frontPaperPos = parseInt(window.getComputedStyle(paper).top.replace('px', ''));
-  let frontPaperHeight = parseInt(window.getComputedStyle(paper).height.replace('px', ''));
-  let backPaperPos = parseInt(window.getComputedStyle(backPaper).top.replace('px', ''));
-  let backPaperHeight = parseInt(window.getComputedStyle(backPaper).height.replace('px', ''));
-  paper.style.top = frontPaperPos-=10;
-  paper.style.height = frontPaperHeight+=10;
-  backPaper.style.top = backPaperPos+=10;
-  backPaper.style.height = backPaperHeight-=10;
-  //add new line for text
-  textRowCounter++;
-  let div = document.createElement('div');
-  div.id = `text${textRowCounter}`;
-  div.className = "text";
-  textTopPosition += 10;
-  div.style.top = textTopPosition;
-  paper.appendChild(div);
-  text = document.querySelector(`#text${textRowCounter}`);
+  //prevent over triggering by repeatedly pressing enter
+  if(canClick){
+    canClick = false;
+    setTimeout(()=> {
+      canClick = true;
+    }, 300);
+    let frontPaperPos = parseInt(window.getComputedStyle(paper).top.replace('px', ''));
+    let frontPaperHeight = parseInt(window.getComputedStyle(paper).height.replace('px', ''));
+    let backPaperPos = parseInt(window.getComputedStyle(backPaper).top.replace('px', ''));
+    let backPaperHeight = parseInt(window.getComputedStyle(backPaper).height.replace('px', ''));
+    paper.style.top = frontPaperPos-=10;
+    paper.style.height = frontPaperHeight+=10;
+    //prevent back of paper appearing below typewriter
+    if (backPaperPos < 65){
+      backPaper.style.top = backPaperPos+=10;
+      backPaper.style.height = backPaperHeight-=10;
+    }
+
+    console.log(backPaperPos)
+    //add new line for text
+    textRowCounter++;
+    let div = document.createElement('div');
+    div.id = `text${textRowCounter}`;
+    div.className = "text";
+    textTopPosition += 10;
+    div.style.top = textTopPosition;
+    paper.appendChild(div);
+    text = document.querySelector(`#text${textRowCounter}`);
+  }
 }
 
 lever.addEventListener('click', ()=> {

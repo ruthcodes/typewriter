@@ -75,7 +75,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#818383",endCo
   border-bottom: none;
   border-top-left-radius: 20%;
   border-top-right-radius: 20%;
-  transition: .5s;
+  transition: .2s;
 }
 
 .text{
